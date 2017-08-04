@@ -1,0 +1,13 @@
+{
+  "name": "tiny-dom-helpers",
+  "main": "dist/index.js",
+  "description": "Tiny dom helpers.",
+  "authors": ["pomysky@gmail.com"],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!dist",
+    "!LICENSE",
+    "!README.md"
+  ]
+}
