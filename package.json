@@ -19,8 +19,8 @@
     "test": "./node_modules/.bin/ava ./test/index.js",
     "prepush": "npm run lint",
     "build": "npx rollup",
-    "lint": "npx eslint  ./**/*.js",
-    "fix": "npx eslint --fix ./**/*.js"
+    "lint": "npx eslint ./index.js",
+    "fix": "npx eslint --fix ./index.js"
   },
   "devDependencies": {
     "ava": "^0.21.0",
