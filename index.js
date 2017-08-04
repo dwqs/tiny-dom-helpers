@@ -23,7 +23,7 @@ class TinyDOM {
      * @returns {Array}
      * @memberof TinyDOM
      */
-    ToArray () {
+    toArray () {
         let str = (this.el.getAttribute('class') || '').replace(/^\s+|\s+$/g, '');
         let classes = str.split(/\s+/);
         if (classes[0] === '') {
