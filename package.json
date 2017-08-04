@@ -18,7 +18,7 @@
   "scripts": {
     "test": "./node_modules/.bin/ava ./test/index.js",
     "prepush": "npm run lint",
-    "build": "npx rollup",
+    "build": "npx rollup -c",
     "lint": "npx eslint ./index.js",
     "fix": "npx eslint --fix ./index.js"
   },
@@ -34,7 +34,8 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.2",
     "jsdom": "^11.1.0",
-    "rollup": "^0.45.2"
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1"
   },
   "dependencies": {},
   "homepage": "https://github.com/dwqs/tiny-dom-helpers",
