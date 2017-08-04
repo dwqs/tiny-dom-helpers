@@ -4,7 +4,7 @@
   "author": "pomysky@gmail.com",
   "description": "Tiny dom helpers.",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "dist/index.js",
   "private": false,
   "repository": {
     "type": "git",
