@@ -273,13 +273,13 @@ class TinyDOM {
      */
     positions () {
         let parentOffset = { top: 0, left: 0 };
-        let offset = {};
+        let position = {};
         let offsetParent = this.offsetParent();
 
         if (css(this.el, 'position') === 'fixed') {
-            offset = this.el.rect();
+            position = this.el.rect();
         } else {
-            offset = offset(this.el);
+            position = offset(this.el);
             if (offsetParent.nodeName.toLocaleLowerCase() !== 'html') {
                 parentOffset = offset(offsetParent);
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -290,9 +290,10 @@ class TinyDOM {
         }
 
         return {
-            ...offset,
-            top: offset.top - parentOffset.top - (parseInt(css(this.el, 'marginTop'), 10) || 0),
-            left: offset.left - parentOffset.left - (parseInt(css(this.el, 'marginLeft'), 10) || 0)
+            width: position.width,
+            height: position.height,
+            top: position.top - parentOffset.top - (parseInt(css(this.el, 'marginTop'), 10) || 0),
+            left: position.left - parentOffset.left - (parseInt(css(this.el, 'marginLeft'), 10) || 0)
         };
     }
     
