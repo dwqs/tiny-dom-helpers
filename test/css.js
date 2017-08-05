@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 
 import tinyDOM from '../src/index';
 
-test('index', (t) => {
-    console.log('index');
+test('css', (t) => {
+    console.log('csss');
     t.pass();
 });
