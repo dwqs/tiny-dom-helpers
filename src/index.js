@@ -1,16 +1,6 @@
 import checkToken from './check-token';
-import css from './css';
-import offset from './offset';
-
-export default function tinyDOM (el) {
-    if (!el || el.nodeType !== 1) {
-        throw new Error('A DOM Element reference is required');
-    }
-    return new TinyDOM(el);
-}
-
-tinyDOM.css = css;
-tinyDOM.offset = offset;
+export { default as css } from './css';
+export { default as offset } from './offset';
 
 class TinyDOM {
     /**
@@ -363,3 +353,10 @@ class TinyDOM {
         return this.el.contains(childNode);
     }
 }
+
+export const createTinyDOM = (el) => {
+    if (!el || el.nodeType !== 1) {
+        throw new Error('[tiny-dom-helpers]: A DOM Element reference is required');
+    }
+    return new TinyDOM(el);
+};
