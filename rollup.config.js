@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel';
 
 export default {
-    entry: './index.js',
+    entry: 'src/index.js',
     format: 'umd',
     moduleName: 'tinyDom',
     dest: 'dist/index.js',
