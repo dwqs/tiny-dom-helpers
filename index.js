@@ -392,4 +392,15 @@ class TinyDOM {
 
         return offsetParent || document.documentElement;
     }
+
+    /**
+     * Check whether the element is a descendant of a given node or not.
+     * 
+     * @param {HTMLElement} childNode 
+     * @returns  boolean
+     * @memberof TinyDOM
+     */
+    contains (childNode) {
+        return this.el.contains(childNode);
+    }
 }
