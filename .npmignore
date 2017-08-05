@@ -1,0 +1,8 @@
+src
+.gitignore
+.vscode
+.npmrc
+.babelrc
+*.js
+node_modules
+bower.json
