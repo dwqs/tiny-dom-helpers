@@ -5,6 +5,7 @@
   "description": "Tiny dom helpers.",
   "license": "MIT",
   "main": "dist/index.js",
+  "typings": "types/index.d.ts",
   "private": false,
   "repository": {
     "type": "git",
