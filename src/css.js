@@ -1,5 +1,4 @@
-import checkToken from './check-token';
-import { ownerDocument } from './helper';
+import { ownerDocument, checkToken } from './helper';
 
 /**
  * Return finally given node css property. 

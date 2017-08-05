@@ -1,7 +1,6 @@
-import checkToken from './check-token';
 import css from './css';
 import offset from './offset';
-import { ownerDocument, ownerWindow } from './helper';
+import { ownerDocument, ownerWindow, checkToken } from './helper';
 
 export { default as css } from './css';
 export { default as offset } from './offset';
