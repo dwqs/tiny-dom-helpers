@@ -1,4 +1,8 @@
 import checkToken from './check-token';
+import css from './css';
+import offset from './offset';
+import { ownerDocument, ownerWindow } from './helper';
+
 export { default as css } from './css';
 export { default as offset } from './offset';
 
@@ -82,6 +86,8 @@ class TinyDOM {
      * @memberof TinyDOM
      */
     removeClass (cls) {
+        let _curClasses = [];
+
         if (Object.prototype.toString.call(cls) === '[object RegExp]') {
             let curClasses = this.toArray();
             for (let i = 0; i < curClasses.length; i++) {
@@ -106,11 +112,13 @@ class TinyDOM {
                         curClasses.splice(curClasses.indexOf(clsName), 1);
                     }
                 }
+                _curClasses = curClasses;
             }
+            _curClasses = curClasses;
         }
 
         if (!this.classList) {
-            this.el.setAttribute('class', curClasses.join(' '));
+            this.el.setAttribute('class', _curClasses.join(' '));
         }
 
         return this;        
@@ -226,7 +234,7 @@ class TinyDOM {
         if (!pseudoEle || ![':after', '::after', ':before', '::before'].includes(pseudoEle)) {
             pseudoEle = null;
         }
-        return this.css(this.el, 'height', pseudoEle);
+        return css(this.el, 'height', pseudoEle);
     }
 
     /**
@@ -247,12 +255,13 @@ class TinyDOM {
      */
     offsetParent () {
         let offsetParent = this.el.offsetParent;
+        let doc = ownerDocument(this.el);
 
         while (offsetParent && this.getNodeName() !== 'html' && css(offsetParent, 'position') === 'static') {
             offsetParent = offsetParent.offsetParent;
         }
 
-        return offsetParent || document.documentElement;
+        return offsetParent || doc.documentElement;
     }
 
     /**
@@ -266,14 +275,18 @@ class TinyDOM {
         let position = {};
         let offsetParent = this.offsetParent();
 
+        // get owner document & window.
+        let doc = ownerDocument(this.el);
+        let win = ownerWindow(doc);
+
         if (css(this.el, 'position') === 'fixed') {
             position = this.el.rect();
         } else {
             position = offset(this.el);
             if (offsetParent.nodeName.toLocaleLowerCase() !== 'html') {
                 parentOffset = offset(offsetParent);
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                let scrollTop = win.pageYOffset || doc.documentElement.scrollTop;
+                let scrollLeft = win.pageXOffset || doc.documentElement.scrollLeft;
                 parentOffset.top += (parseInt(css(offsetParent, 'borderTopWidth'), 10) - scrollTop) || 0;
                 parentOffset.left += (parseInt(css(offsetParent, 'borderLeftWidth'), 10) - scrollLeft) || 0;
             }
