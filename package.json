@@ -14,7 +14,20 @@
   "keywords": [
     "tiny",
     "dom",
-    "dom helpers"
+    "tiny dom",
+    "dom api",
+    "dom helpers",
+    "dom-helpers",
+    "react-component",
+    "vue-component",
+    "cross-browser",
+    "style",
+    "css",
+    "height",
+    "width",
+    "class",
+    "classlist",
+    "offset"
   ],
   "scripts": {
     "test": "./node_modules/.bin/ava ./test/index.js",
