@@ -1,4 +1,5 @@
 import checkToken from './check-token';
+import { ownerDocument } from './helper';
 
 /**
  * Return finally given node css property. 
@@ -10,8 +11,9 @@ import checkToken from './check-token';
  */
 export default function css (node, properyty, pseudoEle = null) {
     checkToken(properyty, 'css');
+    let doc = ownerDocument(node);
 
-    if (!document.contains(node)) {
+    if (!doc.contains(node)) {
         return null;
     }
 
@@ -19,5 +21,5 @@ export default function css (node, properyty, pseudoEle = null) {
         pseudoEle = null;
     }
 
-    return document.defaultView.getComputedStyle(node, pseudoEle).getPropertyValue(property);
+    return doc.defaultView.getComputedStyle(node, pseudoEle).getPropertyValue(properyty);
 }
