@@ -30,7 +30,7 @@
     "offset"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/ava ./test/**/*.js",
+    "test": "./node_modules/.bin/ava ./test/**/*.test.js",
     "prepush": "npm run lint",
     "build": "npx rollup -c",
     "lint": "npx eslint src/**/*.js",
