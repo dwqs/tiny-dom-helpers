@@ -124,7 +124,7 @@ class TinyDOM {
     }
 
     /**
-     * Toggle the given class in the class list. Optionally force state via force.
+     * Toggle the given class in the class list.
      * 
      * @param {string} cls 
      * @param {boolean} force 
