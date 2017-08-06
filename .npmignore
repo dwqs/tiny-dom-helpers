@@ -6,3 +6,5 @@ src
 *.js
 node_modules
 bower.json
+karma-test
+ava-test
