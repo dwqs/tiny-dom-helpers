@@ -13,7 +13,7 @@ export default function offset (node) {
     let box = { top: 0, left: 0, height: 0, width: 0 };
     let docElem = doc && doc.documentElement;
 
-    if (!doc || !docElem.contains(node)) {
+    if (!doc || !docElem.contains(node) || !node || node.nodeType !== 1) {
         return box;
     }
 
