@@ -16,9 +16,9 @@ export declare class TinyDOM {
     toggle(cls: string): TinyDOM;
     replaceClass(oldClass: string, newClass: string): TinyDOM;
     attr(prop: string, value: string): TinyDOM;
-    getNodeName(): stirng;
-    width(): stirng;
-    height(): stirng;
+    getNodeName(): string;
+    width(): string;
+    height(): string;
     rect(): Box;
     offsetParent(): HTMLElement;
     positions(): Box;
@@ -28,10 +28,8 @@ export declare class TinyDOM {
     contains(): boolean
 }
 
-declare namespace tinyDom {
+export declare namespace tinyDom {
     export function css(node: HTMLElement, properyty: string, pseudoEle: string | null): string;
     export function offset(node: HTMLElement): Box;
     export function createTinyDOM(node: HTMLElement): TinyDOM
 }
-
-export = tinyDom;
