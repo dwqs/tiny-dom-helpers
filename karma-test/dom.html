@@ -11,7 +11,7 @@
         .p {
             margin: 10px;
             padding: 10px
-        }
+        } 
 
         .test {
             color: red;
@@ -62,21 +62,32 @@
 </head>
 
 <body>
+    <div id="offset" style="position: absolute; top: 200px; left: 150px; width: 100px; height: 50px"></div>
     <h2>this is h2 element.</h2>
     this is a text node.
     <p class="test p">test content</p>
     this is a text node.
     <span class="span">this is a span element</span>
-    <div class="div" id="div">
+    <div class="div" id="div1">
         <div>
             <p>
                 <span id="hello">hello, span</span>
             </p>
         </div>
     </div>
+    <div class="div" id="div2">
+        <div>
+            <p style="position:absolute">
+                the absolute element.
+            </p>
+        </div>
+    </div>
     <p>
         <div class="abtest"></div>
     </p>
+    <div class="div">
+        <div id='item-absolute' style="position:absolute;top: 100px; left: 240px;">the absolute element1.</div>
+    </div>
 </body>
 
 </html> 
