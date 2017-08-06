@@ -178,18 +178,6 @@ test('Return the node name of the element', (t) => {
     t.is('p', dom.getNodeName());
 });
 
-test('Return the width of the element', (t) => {
-    t.plan(1);
-
-    t.is('50px', dom.width());
-});
-
-test('Return the height of the element', (t) => {
-    t.plan(1);
-
-    t.is('100px', dom.height());
-});
-
 test('Return the element\'s bounding box', (t) => {
     t.plan(1);
 
