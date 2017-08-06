@@ -205,7 +205,7 @@ class TinyDOM {
      * @memberof TinyDOM
      */
     getNodeName () {
-        return this.el.nodeName && this.el.nodeName.toLowerCase();
+        return this.el.nodeName && this.el.nodeName.toLocaleLowerCase();
     }
 
     /**
@@ -256,11 +256,11 @@ class TinyDOM {
         let offsetParent = this.el.offsetParent;
         let doc = ownerDocument(this.el);
 
-        while (offsetParent && this.getNodeName() !== 'html' && css(offsetParent, 'position') === 'static') {
+        while (offsetParent && this.getNodeName() !== 'body' && css(offsetParent, 'position') === 'static') {
             offsetParent = offsetParent.offsetParent;
         }
 
-        return offsetParent || doc.documentElement;
+        return offsetParent || doc.body;
     }
 
     /**
@@ -279,13 +279,13 @@ class TinyDOM {
         let win = ownerWindow(doc);
 
         if (css(this.el, 'position') === 'fixed') {
-            position = this.el.rect();
+            position = this.rect();
         } else {
             position = offset(this.el);
-            if (offsetParent.nodeName.toLocaleLowerCase() !== 'html') {
+            if (offsetParent && offsetParent.nodeName.toLocaleLowerCase() !== 'body') {
                 parentOffset = offset(offsetParent);
-                let scrollTop = win.pageYOffset || doc.documentElement.scrollTop;
-                let scrollLeft = win.pageXOffset || doc.documentElement.scrollLeft;
+                let scrollTop = win.pageYOffset || doc.documentElement.scrollTop || doc.body.scrollTop;
+                let scrollLeft = win.pageXOffset || doc.documentElement.scrollLeft || doc.body.scrollLeft;
                 parentOffset.top += (parseInt(css(offsetParent, 'borderTopWidth'), 10) - scrollTop) || 0;
                 parentOffset.left += (parseInt(css(offsetParent, 'borderLeftWidth'), 10) - scrollLeft) || 0;
             }
@@ -362,6 +362,9 @@ class TinyDOM {
      * @memberof TinyDOM
      */
     contains (childNode) {
+        if (!childNode || childNode.nodeType !== 1) {
+            return false;
+        }
         return this.el.contains(childNode);
     }
 }
