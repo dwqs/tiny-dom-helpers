@@ -18,18 +18,6 @@ const domString = `
                     width: 50px;
                     height: 100px;
                 }
-                .test::before{
-                    position: absolute;
-                    content: 'sdas',
-                    width: 20px;
-                    height: 20px;
-                }
-                .test::after{
-                    position: absolute;
-                    content: 'sdas',
-                    width: 40px;
-                    height: 40px;
-                }
                 .test2{
                     color: blue;
                     font-size: 14px
@@ -60,7 +48,7 @@ const domString = `
             <p class="test p">test content</p>
             this is a text node.
             <span class="span">this is a span element</span>
-            <div class="div">
+            <div class="div" id="div">
                 <div>
                     <p>
                         <span id="hello"> hello, span</span>
