@@ -183,3 +183,42 @@ test('Return the element\'s bounding box', (t) => {
 
     t.deepEqual(p.getBoundingClientRect(), dom.rect());
 });
+
+test('Return the previous element', (t) => {
+    t.plan(1);
+
+    let item = document.querySelector('h2');
+
+    t.deepEqual(dom.previous(), item);
+});
+
+test('Return the next element', (t) => {
+    t.plan(1);
+
+    let item = document.querySelector('.span');
+
+    t.deepEqual(dom.previous(), item);
+});
+
+test('Return the parent element', (t) => {
+    t.plan(1);
+
+    let span = document.querySelector('#hello');
+    let p = document.querySelector('#div p');
+    let s = createTinyDOM(span);
+
+    t.deepEqual(s.parent(), p);
+});
+
+test('Check whether the element is a descendant of a given node or not', (t) => {
+    t.plan(3);
+
+    let span = document.querySelector('#hello');
+    let div = document.querySelector('#div');
+    let s = createTinyDOM(span);
+    let d = createTinyDOM(div);
+
+    t.false(s.contains(div));
+    t.false(dom.contains(div));
+    t.true(d.contains(span));
+});
