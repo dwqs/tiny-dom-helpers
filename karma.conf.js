@@ -1,8 +1,5 @@
 let path = require('path');
 
-/* eslint-disable */
-let isCI = process.env.CONTINUOUS_INTEGRATION ? true : false;
-
 module.exports = config => {
     config.set({
         frameworks: ['mocha', 'chai'],
@@ -11,13 +8,7 @@ module.exports = config => {
             'karma-test/*.html',
             'test.js'
         ],
-        browsers: [isCI ? 'ChromeTravisCI' : 'Chrome'],
-        customLaunchers: {
-            ChromeTravisCI: {
-                base: 'Chrome',
-                flags: ['--no-sandbox']
-            }
-        },
+        browsers: ['Chrome'],
         plugins: [
             'karma-chrome-launcher',
             'karma-mocha',
