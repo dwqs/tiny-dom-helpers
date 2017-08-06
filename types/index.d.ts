@@ -28,8 +28,6 @@ export declare class TinyDOM {
     contains(): boolean
 }
 
-export declare namespace tinyDom {
-    export function css(node: HTMLElement, properyty: string, pseudoEle: string | null): string;
-    export function offset(node: HTMLElement): Box;
-    export function createTinyDOM(node: HTMLElement): TinyDOM
-}
+export function css(node: HTMLElement, properyty: string, pseudoEle: string | null): string;
+export function offset(node: HTMLElement): Box;
+export function createTinyDOM(node: HTMLElement): TinyDOM
