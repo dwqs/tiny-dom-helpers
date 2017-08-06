@@ -16,6 +16,8 @@ bin-release/
 
 node_modules
 .idea
+karma-test/demo.js
+karma.conf.ava.js
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
