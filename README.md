@@ -124,26 +124,26 @@ Return the width of the element or it's pseudo-elements.
 #### .height(pseduo-element=null)
 Return the height of the element or it's pseudo-elements.
 
-### .rect()
+#### .rect()
 Return the size and position of the element's bounding box, relative to the viewport.
 
-### .offsetParent()
+#### .offsetParent()
 Return the object which is the closest positioned containing element.
 
-### .positions()
+#### .positions()
 Return the size and position of the element's bounding box, relative to the offsetParent.
 
-### .previous()
+#### .previous()
 Return the previous HTMLElment of the element.
 
-### .next()
+#### .next()
 Return the next HTMLElment of the element.
 
-### .parent()
+#### .parent()
 Return the parent HTMLElment of the element.
 
-### .contains(node)
+#### .contains(node)
 Check whether the given node is the element's children and return a boolean.
 
-## LICENSE
+### LICENSE
 MIT
