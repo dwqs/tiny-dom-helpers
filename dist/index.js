@@ -42,7 +42,7 @@ function offset(node) {
     var win = ownerWindow(doc);
     var box = { top: 0, left: 0, height: 0, width: 0 };
     var docElem = doc && doc.documentElement;
-    if (!doc || !docElem.contains(node)) {
+    if (!doc || !docElem.contains(node) || !node || node.nodeType !== 1) {
         return box;
     }
     box = node.getBoundingClientRect();
@@ -59,6 +59,7 @@ function offset(node) {
     return box;
 }
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 var TinyDOM = function () {
@@ -188,11 +189,18 @@ var TinyDOM = function () {
             var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
             checkToken(prop, 'attr');
             if (!value) {
-                this.el.getAttribute(prop);
-            } else {
-                this.el.setAttribute(prop, value);
+                return this.el.getAttribute(prop);
             }
-            return this;
+            return value;
+        }
+    }, {
+        key: 'text',
+        value: function text() {
+            var _text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+            if (!_text || !['string', 'number', 'boolean'].includes(typeof _text === 'undefined' ? 'undefined' : _typeof(_text))) {
+                return this.el.innerText;
+            }
+            return _text;
         }
     }, {
         key: 'getNodeName',
