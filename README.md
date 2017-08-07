@@ -113,7 +113,7 @@ Toggle the given class in the class list and return the instance.
 Replaces an existing class with a new class and return the instance.
 
 #### .attr(prop, value = '')
-Attributes' getter/setter of the element and return the instance. 
+Attributes' getter/setter of the element and return the prop value. 
 
 #### .getNodeName()
 Return the node name of the element.
