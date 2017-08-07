@@ -161,14 +161,13 @@ test('Replaces an existing class with a new class', (t) => {
 });
 
 test('Attributes\' getter/setter of the element', (t) => {
-    t.plan(3);
+    t.plan(2);
 
-    t.is('span', s.el.getAttribute('class'));
+    t.is('span', s.attr('class'));
 
     let v = s.attr('class', 't1 t2');
 
-    t.is('t1 t2', s.el.getAttribute('class'));
-    t.deepEqual(s, v);
+    t.is('t1 t2', v);
 });
 
 test('Return the node name of the element', (t) => {

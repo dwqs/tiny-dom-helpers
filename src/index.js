@@ -190,12 +190,9 @@ class TinyDOM {
     attr (prop, value = '') {
         checkToken(prop, 'attr');
         if (!value) {
-            this.el.getAttribute(prop);
-        } else {
-            this.el.setAttribute(prop, value);
-        }
-
-        return this;
+            return this.el.getAttribute(prop);
+        } 
+        return value;
     }
 
     /**
