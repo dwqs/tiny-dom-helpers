@@ -196,6 +196,20 @@ class TinyDOM {
     }
 
     /**
+     * Text's getter/setter of the element. 
+     * 
+     * @param {string} [text=''] 
+     * @returns 
+     * @memberof TinyDOM
+     */
+    text (text = '') {
+        if (!text || !['string', 'number', 'boolean'].includes(typeof text)) {
+            return this.el.innerText;
+        }
+        return text;
+    }
+
+    /**
      * Return the node name of the element.
      * 
      * @returns {String}
