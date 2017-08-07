@@ -4,6 +4,22 @@ import { css, offset, createTinyDOM } from '../src/index';
 
 let dom = null;
 
+describe('text\'s getter/setter of the element', () => {
+    beforeEach(() => {
+        document.body.innerHTML = window.__html__['karma-test/dom.html'];
+        let span = document.querySelector('.span');
+        dom = createTinyDOM(span);
+    });
+    
+    it('the text should be equal', () => {
+        expect(dom.text()).to.equal('this is a span element');  
+        expect(dom.text({})).to.equal('this is a span element');
+        expect(dom.text('test text method')).to.equal('test text method');
+        expect(dom.text(2222)).to.equal(2222);
+        expect(dom.text(true)).to.equal(true);
+    });
+});
+
 describe('width & height of the element', () => {
     beforeEach(() => {
         document.body.innerHTML = window.__html__['karma-test/dom.html'];
