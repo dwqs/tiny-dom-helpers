@@ -15,7 +15,8 @@ export declare class TinyDOM {
     removeClass(cls: string): TinyDOM;
     toggle(cls: string): TinyDOM;
     replaceClass(oldClass: string, newClass: string): TinyDOM;
-    attr(prop: string, value: string): TinyDOM;
+    attr(prop: string, value: string): void | string;
+    text(text: string): void | string;
     getNodeName(): string;
     width(): string;
     height(): string;
