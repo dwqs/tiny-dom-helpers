@@ -191,6 +191,7 @@ var TinyDOM = function () {
             if (!value) {
                 return this.el.getAttribute(prop);
             }
+            this.el.setAttribute(prop, value);
             return value;
         }
     }, {
@@ -200,6 +201,7 @@ var TinyDOM = function () {
             if (!_text || !['string', 'number', 'boolean'].includes(typeof _text === 'undefined' ? 'undefined' : _typeof(_text))) {
                 return this.el.innerText;
             }
+            this.el.innerText = _text;
             return _text;
         }
     }, {
