@@ -207,6 +207,7 @@ class TinyDOM {
         if (!text || !['string', 'number', 'boolean'].includes(typeof text)) {
             return this.el.innerText;
         }
+        this.el.innerText = text;
         return text;
     }
 
